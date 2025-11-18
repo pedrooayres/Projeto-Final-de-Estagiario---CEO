@@ -11,6 +11,7 @@ public class Desenvolvedor {
     private List<String> habilidades;
     private boolean modoDevNoturno;
     private int energia;
+    private boolean descansar;
     
 
     public Desenvolvedor(String nome) {
@@ -20,6 +21,7 @@ public class Desenvolvedor {
         this.habilidades = new ArrayList<>();
         this.modoDevNoturno = false;
         this.energia = 0;
+        this.descansar = false;
     }
 
     public String getNome() {
@@ -49,6 +51,12 @@ public class Desenvolvedor {
     public List<String> getHabilidades() {
         return habilidades;
     }
+    public int getEnergia() {
+        return energia;
+    }
+    public void setEnergia(int energia) {
+        this.energia = energia;
+    }
 
     public void adicionarHabilidade(String habilidade) {
        habilidades.add(habilidade);
@@ -61,6 +69,7 @@ public class Desenvolvedor {
         }
         System.out.println("\n" + nome + " está trabalhando no projeto: " + projeto.getNome());
         projeto.concluirProjeto(this);
+        
     }
 
     public void estudar(String habilidade) {
@@ -163,9 +172,11 @@ public class Desenvolvedor {
     System.out.println("Nome: " + Color.CYAN + nome + Color.RESET);
     System.out.println("Nível: " + Color.GREEN + nivel + Color.RESET);
     System.out.println("XP: " + Color.PURPLE + xp + Color.RESET);
-    System.out.println("Energia: " + Color.BLUE + energia + Color.RESET);
     System.out.println("Habilidades: " + Color.CYAN + habilidades + Color.RESET);
         }
+    public void descarnsar(){
+
+    }
         public int calcularXP(String habilidade) {
     habilidade = habilidade.toLowerCase();
     

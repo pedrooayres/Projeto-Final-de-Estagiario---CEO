@@ -72,6 +72,7 @@ public class Carreira {
        System.out.println(Color.GREEN + "\n>>> Bem Vindo ! <<<\n" + Color.RESET+desenvolvedor.getNome());
        System.out.println(Color.GREEN + "\n>>> Cargo Atual : <<<\n" + Color.RESET+desenvolvedor.getNivel());
        System.out.println(Color.GREEN + "\n>>> XP Atual : <<<\n" + Color.RESET+desenvolvedor.getXp());
+       System.out.println(Color.GREEN +"\n >>> Energia Atual : <<<\n" + Color.RESET + desenvolvedor.getEnergiaMaxima() );
     }
 
     public Projeto gerarProjetoAleatorio() {
@@ -113,6 +114,8 @@ public class Carreira {
            System.out.println("║ "+Color.GREEN + "3" + Color.RESET + "- Enfrentar Desafio Aleatorio      ║");
            System.out.println("║ " + Color.GREEN + "4" + Color.RESET + " - Ver Status                      ║");
            System.out.println("║ " + Color.YELLOW + "5" + Color.RESET + " - Ativar Modo Dev Noturno         ║");
+           System.out.println("║" + Color.GREEN + " 6"+Color.RESET+ "- Tomar Café                       ║");
+           System.out.println("║" + Color.GREEN +" 7"+Color.RESET+"- Descansar                        ║");
            System.out.println("║ " + Color.RED + "0" + Color.RESET + " - Sair                            ║");
            System.out.println(Color.CYAN + "╚═════════════════════════════════════╝" + Color.RESET);
             int opcao = sc.nextInt();
@@ -159,6 +162,14 @@ public class Carreira {
                     System.out.print("Digite a senha secreta: ");
                     String senha = sc.nextLine();
                     ativarModoDevNoturnoSeSenhaCorreta(senha);
+                    break;
+                case 6:
+                    desenvolvedor.tomarCafe();
+                    System.out.println("Tomando Café.....");
+                    break;
+                case 7:
+                    System.out.println("Jogador esta descansando....");
+                    desenvolvedor.descansar();
                     break;
                 case 0:
                     continuar = false;

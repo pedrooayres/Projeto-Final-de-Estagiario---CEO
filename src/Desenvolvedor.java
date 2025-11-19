@@ -90,8 +90,8 @@ public void estudar(String habilidade) {
     System.out.println(nome + " está estudando " + habilidade + "...");
     adicionarHabilidade(habilidade);
     int xpGanho = calcularXP(habilidade);
-    ganharXP(xpGanho);
-    consumirEnergia(10); // estudo novo custa 10
+     consumirEnergia(10); // estudo novo custa 10
+     ganharXP(xpGanho);
     System.out.println("Ganhou " + xpGanho + " XP!");
 }
 

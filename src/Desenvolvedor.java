@@ -11,8 +11,6 @@ public class Desenvolvedor {
     private List<String> habilidades;
     private boolean modoDevNoturno;
     private int energia;
-    private boolean descansar;
-    
 
     public Desenvolvedor(String nome) {
         this.nome = nome;
@@ -20,8 +18,7 @@ public class Desenvolvedor {
         this.xp = 0;
         this.habilidades = new ArrayList<>();
         this.modoDevNoturno = false;
-        this.energia = 0;
-        this.descansar = false;
+        this.energia = getEnergiaMaxima();
     }
 
     public String getNome() {
@@ -55,42 +52,49 @@ public class Desenvolvedor {
         return energia;
     }
     public void setEnergia(int energia) {
-        this.energia = energia;
-    }
+    this.energia = Math.min(energia, getEnergiaMaxima());
+}
 
     public void adicionarHabilidade(String habilidade) {
        habilidades.add(habilidade);
        System.out.println("Nova habilidade aprendida: " + habilidade + "!");
 }
-
-    public void trabalharEmProjeto(Projeto projeto) throws ProjetoInexistenteException {
-        if (projeto == null) {
-            throw new ProjetoInexistenteException("Projeto informado é nulo ou inexistente.");
-        }
-        System.out.println("\n" + nome + " está trabalhando no projeto: " + projeto.getNome());
-        projeto.concluirProjeto(this);
-        
+public void trabalharEmProjeto(Projeto projeto) throws ProjetoInexistenteException {
+    if (projeto == null) {
+        throw new ProjetoInexistenteException("Projeto informado é nulo ou inexistente.");
     }
-
-    public void estudar(String habilidade) {
+    if (!temEnergia(15)) { // temEnergia < 15
+        System.out.println(nome + " não tem energia suficiente para trabalhar no projeto! Energia atual: " + energia);
+        return;
+    }
+    consumirEnergia(15);
+    System.out.println("\n" + nome + " está trabalhando no projeto: " + projeto.getNome());
+    projeto.concluirProjeto(this);
+}
+public void estudar(String habilidade) {
     habilidade = habilidade.toLowerCase();
 
-    // Verifica primeiro se já existe
+    // precisa ter 10 de energia para INICIAR qualquer estudo
+    if (!temEnergia(10)) {
+        System.out.println(nome + " está cansado demais para estudar! Energia atual: " + energia);
+        return;
+    }
+    // já estudou antes (revisão)
     if (habilidades.contains(habilidade)) {
         System.out.println(nome + " já estudou " + habilidade + " antes! Revisão não rende muito XP...");
-        ganharXP(1); // XP reduzido por revisão
-        return;      // impede continuar
+        ganharXP(1);
+        consumirEnergia(5);  // revisão custa 5
+        return;
     }
-
-    // Caso seja nova habilidade:
+    // estudo novo
     System.out.println(nome + " está estudando " + habilidade + "...");
     adicionarHabilidade(habilidade);
-
     int xpGanho = calcularXP(habilidade);
     ganharXP(xpGanho);
-
+    consumirEnergia(10); // estudo novo custa 10
     System.out.println("Ganhou " + xpGanho + " XP!");
 }
+
     public void subirDeCargo() throws SemXPException {
         int xpNecessario = xpNecessarioParaProximoCargo();
         if (xpNecessario < 0) {
@@ -139,15 +143,28 @@ public class Desenvolvedor {
                 return -1;
         }
     }
-
-    public void ganharXP(int qtd) {
-        if (modoDevNoturno) {
-            qtd += 5; // bônus simples para o modo secreto
-        }
-        this.xp += qtd;
-        System.out.println(nome + " ganhou " + qtd + " XP. Total: " + xp);
+    public int getEnergiaMaxima() {
+    switch (nivel) {
+        case ESTAGIARIO: return 60;
+        case JUNIOR: return 80;
+        case PLENO: return 100;
+        case SENIOR: return 120;
+        case CEO: return 150;
+        default: return 100;
     }
-
+}
+    public void ganharXP(int qtd) {
+    // efeito do modo noturno
+    if (modoDevNoturno) qtd += 5;
+    // energia influenciando XP
+    if (energia < 20)
+        qtd -= 3;   // cansado → perde rendimento
+    else if (energia > 90)
+        qtd += 2;   // energizado → bônus
+    if (qtd < 0) qtd = 0;
+    xp += qtd;
+    System.out.println(nome + " ganhou " + qtd + " XP! Energia atual: " + energia);
+}
     public void perderXP(int qtd) {
         this.xp -= qtd;
         if (this.xp < 0) this.xp = 0;
@@ -173,24 +190,39 @@ public class Desenvolvedor {
     System.out.println("Nível: " + Color.GREEN + nivel + Color.RESET);
     System.out.println("XP: " + Color.PURPLE + xp + Color.RESET);
     System.out.println("Habilidades: " + Color.CYAN + habilidades + Color.RESET);
+    System.out.println("Energia: " + Color.BLUE + energia + "/" + getEnergiaMaxima() + Color.RESET);
         }
-    public void descarnsar(){
-
-    }
         public int calcularXP(String habilidade) {
     habilidade = habilidade.toLowerCase();
-    
     if (habilidade.contains("java") || habilidade.contains("kotlin"))
         return 12;
-
     if (habilidade.contains("html") || habilidade.contains("css"))
         return 5;
-
     if (habilidade.contains("aws") || habilidade.contains("docker") || habilidade.contains("devops"))
         return 15;
-
     if (habilidade.contains("ia") || habilidade.contains("machine learning"))
         return 20;
     return 5;
+    }
+    public void consumirEnergia(int valor) {
+        energia -= valor;
+        if (energia < 0) energia = 0;
+    }
+    public boolean temEnergia(int qtd) {
+        return energia >= qtd;
+    }
+    public void descansar() {
+        energia = Math.min(energia + 20, getEnergiaMaxima());
+        System.out.println(nome + " descansou e recuperou energia! Energia atual: " + energia);
+}
+    public void tomarCafe() {
+        energia = Math.min(energia + 10, getEnergiaMaxima());
+        System.out.println(nome + " tomou café ☕ Energia atual: " + energia);
+}
+    public void verificarEstado() {
+        if (energia <= 5) {
+            System.out.println("ALERTA! " + nome + " está EXAUSTO! Produtividade cai drasticamente.");
+            perderXP(3);
+        }
     }
 }

@@ -114,6 +114,6 @@
 <h2> Contribuidores</h2>
     <br> Diogo Fonseca </br>
     <br>João Gabriel </br>
-   <br> Pedro Ayres </br>
+   <br> Pedro Ayres </br> <a> https://www.linkedin.com/in/pedro-henrique-ayres-563145246 </a> 
     <br></br>
     </summary>

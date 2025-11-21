@@ -109,5 +109,11 @@
     </summary>
   </ul>
 </div>
-
+  <summary>
+<h2> Contribuidores</h2>
+    <br> Diogo Fonseca </br>
+    <br>João Gabriel </br>
+   <br> Pedro Ayres </br>
+    <br></br>
+    </summary>
 - Todos os arquivos do programa estão contidos na pasta "src" nesse repositório. Basta baixar a pasta e rodar o programa através de alguma IDE ou máquina capaz de compilar códigos escritos em JAVA

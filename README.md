@@ -21,6 +21,7 @@
 - O aumento de experiência concede pontos de habilidade, a distribuição desses pontos é feita pelo próprio jogador, permitindo o foco em diferentes especializações dentro da empresa.
 - O jogador deve aumentar sua experiência, e distribuir seus pontos em habilidades variadas, para ascender na empresa até atingir seu grande objetivo de se tornar o CEO!
 - Ao obter o número necessário de experiência, o jogador pode enfrentar desafios específicos na empresa que vão decidir o seu futuro.
+- Durante o desafio de promoção, é realizado um roll de 1-100 que vai decidir se o jogador venceu o desafio ou não. O valor desse roll deve cair dentro do valor da probabilidade de sucesso do jogador, ou seja, caso o jogador inicie o desafio com uma chance de 40% de vencer, o roll deve dar 40 ou menos.
 
 ---
 

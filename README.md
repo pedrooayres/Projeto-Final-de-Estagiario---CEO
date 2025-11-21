@@ -106,6 +106,7 @@
   <ul style="list-style: none">
     <summary>
       <h1> ❓ Como rodar o programa? - </h1>
+     <br> - Todos os arquivos do programa estão contidos na pasta "src" nesse repositório. Basta baixar a pasta e rodar o programa através de alguma IDE ou máquina capaz de compilar códigos escritos em JAVA </br>
     </summary>
   </ul>
 </div>
@@ -116,4 +117,3 @@
    <br> Pedro Ayres </br>
     <br></br>
     </summary>
-- Todos os arquivos do programa estão contidos na pasta "src" nesse repositório. Basta baixar a pasta e rodar o programa através de alguma IDE ou máquina capaz de compilar códigos escritos em JAVA

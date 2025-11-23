@@ -101,17 +101,28 @@
 
 <br/>
 <br/>
+
+
 ---
 
   <ul style="list-style: none">
     <summary>
       <h1> ❓ Como rodar o programa? - </h1>
-     <br> - Todos os arquivos do programa estão contidos na pasta "src" nesse repositório. Basta baixar a pasta e rodar o programa através de alguma IDE ou máquina capaz de compilar códigos escritos em JAVA </br>
+     <br> - Todos os arquivos do programa estão contidos nos arquivos desse repositório. Basta baixar a pasta e rodar o programa através de alguma IDE ou máquina capaz de compilar códigos escritos em JAVA </br>
     </summary>
   </ul>
 </div>
-  <summary>
-<h2> Contribuidores</h2>
-    <br/>[Linkedin - Diogo Fonseca]()<br/>
-    <br/>[Linkedin - João Gabriel](https://www.linkedin.com/in/joão-gabriel-moura-50564826a)<br/>
-    <br/>[Linkedin - Pedro Ayres](https://www.linkedin.com/in/pedro-henrique-ayres-563145246)<br/>
+
+
+---
+ <ul style="list-style: none">
+    <summary>
+      <h1> 🤝 Contribuidores do projeto - </h1>
+    </summary>
+  </ul>
+</div>
+
+
+<br/>[Linkedin - João Gabriel](https://www.linkedin.com/in/joão-gabriel-moura-50564826a)<br/>
+<br/>[Linkedin - Pedro Ayres](https://www.linkedin.com/in/pedro-henrique-ayres-563145246)<br/>
+<br/>[Linkedin - Diogo Fonseca]()<br/>

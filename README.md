@@ -112,8 +112,6 @@
 </div>
   <summary>
 <h2> Contribuidores</h2>
-    <br> Diogo Fonseca </br>
-    <br>João Gabriel </br> <a> https://www.linkedin.com/in/joão-gabriel-moura-50564826a/?utm_source=share_via&utm_content=profile&utm_medium=member_android </a>
-   <br> Pedro Ayres </br> <a> https://www.linkedin.com/in/pedro-henrique-ayres-563145246 </a> 
-    <br></br>
-    </summary>
+    <br/>[Linkedin - Diogo Fonseca]()<br/>
+    <br/>[Linkedin - João Gabriel](https://www.linkedin.com/in/joão-gabriel-moura-50564826a)<br/>
+    <br/>[Linkedin - Pedro Ayres](https://www.linkedin.com/in/pedro-henrique-ayres-563145246)<br/>
